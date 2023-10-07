@@ -1,8 +1,8 @@
 package accounts;
 
 public class CreditAccount extends Account { //кредитный
-    public CreditAccount(String name, long balanse) {
-        super(name, balanse);
+    public CreditAccount(String name) {
+        super(name,0);
     }
 
     @Override

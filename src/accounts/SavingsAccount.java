@@ -10,7 +10,7 @@ public class SavingsAccount extends Account { //накопительный
 
     @Override
     public boolean pay(long amount) {
-        if (balanse - amount <= minBalanse) {
+        if (balanse - amount >= minBalanse) {
             balanse -= amount;
             return true;
         }
