@@ -1,8 +1,9 @@
 package clients;
 
 import accounts.Account;
+import accounts.MoneyTarget;
 
-public class Client {
+public class Client implements MoneyTarget {
 
     protected String name;
     protected int maxCountAccount;
@@ -32,6 +33,17 @@ public class Client {
                 return true;
             }
         }
+        return false;
+    }
+
+    @Override
+    public boolean accept(int money) {
+        for(int i = 0; i < accounts.length && accounts[i] != null; i++){
+            if(accounts[i].add(money)){
+                return true;
+            }
+        }
+        System.out.println("Деньги не приняты");
         return false;
     }
 }
