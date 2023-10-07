@@ -1,6 +1,6 @@
 package accounts;
 
-public class Account {
+public abstract class Account implements MoneyTarget {
     protected String name;
     protected long balanse;
 
@@ -19,13 +19,17 @@ public class Account {
         return true;
     }
 
-    public long getBalanse() {
-        return balanse;
-    }
-
     // Перевод со счета на счет
     public boolean transfer(Account accountTo, int amount) {
         return this.pay(amount) && accountTo.add(amount);
     }
 
+    @Override
+    public boolean accept(int money) {
+        return add(money);
+    }
+
+    public long getBalanse() {
+        return balanse;
+    }
 }
