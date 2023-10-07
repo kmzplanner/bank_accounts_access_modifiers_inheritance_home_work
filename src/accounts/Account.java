@@ -19,4 +19,13 @@ public class Account {
         return true;
     }
 
+    public long getBalanse() {
+        return balanse;
+    }
+
+    // Перевод со счета на счет
+    public boolean transfer(Account accountTo, int amount) {
+        return this.pay(amount) && accountTo.add(amount);
+    }
+
 }
