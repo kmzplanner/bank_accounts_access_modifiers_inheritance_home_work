@@ -1,7 +1,7 @@
 package accounts;
 
-public abstract class Account implements MoneyTarget {
-    protected String name;
+public abstract class Account implements MoneyTarget {//Реализуем абстрактный класс
+    protected String name;//Реализуем инкапсуляцию через модификатор доступа protected
     protected long balanse;
 
     public Account(String name, long balanse) {
@@ -19,7 +19,7 @@ public abstract class Account implements MoneyTarget {
         return true;
     }
 
-    // Перевод со счета на счет
+    // Перевод со счета у кого вызвали на счет, указанный в параметрах
     public boolean transfer(Account accountTo, int amount) {
         return this.pay(amount) && accountTo.add(amount);
     }
@@ -27,7 +27,7 @@ public abstract class Account implements MoneyTarget {
     @Override
     public boolean accept(int money) {
         return add(money);
-    }
+    }//
 
     public long getBalanse() {
         return balanse;
